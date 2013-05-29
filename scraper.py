@@ -25,6 +25,7 @@ def scrape_table(root):
 # scrape_and_look_for_next_link function: calls the scrape_table
 # function, then hunts for a 'next' link: if one is found, calls itself again
 def scrape_and_look_for_next_link(url):
+    i++
     html = scraperwiki.scrape(url)
     print html
     root = lxml.html.fromstring(html)
@@ -45,4 +46,5 @@ def scrape_and_look_for_next_link(url):
 # ---------------------------------------------------------------------------
 base_url = 'http://www.sgi-usa.org/encouragement/index.php/'
 starting_url = urlparse.urljoin(base_url, '?')
+i = 0
 scrape_and_look_for_next_link(starting_url)
