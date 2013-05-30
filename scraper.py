@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 ###############################################################################
 # START HERE: Tutorial 3: More advanced scraping. Shows how to follow 'next' 
 # links from page to page: use functions, so you can call the same code 
@@ -17,7 +18,6 @@ def scrape_table(root):
         table_cells = row.cssselect("p")
         # need to figure out how to get row targetBack to scraper overview
         if table_cells: 
-            record['Date'] = table_cells[1].text
             record['Quote'] = table_cells[2].text
             # Print out the data we've gathered
             print record, '------------'
@@ -45,6 +45,6 @@ def scrape_and_look_for_next_link(url):
 # START HERE: define your starting URL - then 
 # call a function to scrape the first page in the series.
 # ---------------------------------------------------------------------------
-base_url = 'http://www.sgi-usa.org/encouragement/index.php/'
+base_url = 'http://www.sgi-usa.org/encouragement/index.php?m=1&d=1'
 starting_url = urlparse.urljoin(base_url, '?')
 scrape_and_look_for_next_link(starting_url)
